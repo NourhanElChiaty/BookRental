@@ -1,0 +1,58 @@
+﻿@model BookRental.ViewModel.BookViewModel
+@{
+    ViewBag.Title = "ReadBooks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ReadBooks</h2>
+@using (Html.BeginForm("Search","Book"))
+{   
+<div class="form-group" >
+    <div id="SearchBooks" class="input-group" style="width:350px">
+        
+        @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control", @placeholder = "Search by name or author" })
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>
+    </div>
+    
+
+
+
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Quantity</th>
+            <th>ISPN </th>
+            <th>Released Date </th>
+            <th> </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Books)
+        {
+
+
+            <tr>
+                <td>@item.Book_Name</td>
+                <td>@item.Book_Author</td>
+                <td>@item.Book_Quantity</td>
+                <td>@item.Book_ISBN</td>
+                <td>@item.Book_Release.Value.Year</td>
+               
+                <td>
+                    
+                        <a href="@Url.Action("RentBook","Customer",new { id = item.Id })">
+                            Rent
+                        </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

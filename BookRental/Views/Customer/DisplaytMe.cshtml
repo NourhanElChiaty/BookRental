@@ -1,0 +1,17 @@
+﻿@model BookRental.Models.Customer
+@{
+    ViewBag.Title = "DisplaytMe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.LabelFor(m => m.Cust_FName)
+@Model.Cust_FName
+
+@Html.LabelFor(m => m.Cust_LName)
+@Model.Cust_LName
+
+@Html.LabelFor(m => m.Cust_BOD)
+@Model.Cust_BOD
+
+
+

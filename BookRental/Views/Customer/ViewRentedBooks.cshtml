@@ -1,0 +1,38 @@
+﻿@model BookRental.ViewModel.RentBookViewModel
+@{
+    ViewBag.Title = "ViewRentedBooks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Books</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Rental)
+        {
+
+
+            <tr>
+                <td>@item.Book.Book_Name</td>
+                <td>@item.Book.Book_Author</td>
+               
+
+                <td>
+
+                    <a href="@Url.Action("UnRent","Customer",new { id = item.Book.Id ,bId= item.Id })">
+                        UnRent
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

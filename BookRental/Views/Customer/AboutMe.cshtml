@@ -1,0 +1,24 @@
+﻿@model BookRental.Models.Customer
+@{
+    ViewBag.Title = "AboutMe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("AboutMe", "Customer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.LabelFor(m => m.Cust_FName)
+    @Html.TextBoxFor(m => m.Cust_FName, new { @class = "form-control", @placeholder = "Your First Name" })
+
+
+
+    @Html.LabelFor(m => m.Cust_LName)
+    @Html.TextBoxFor(m => m.Cust_LName, new { @class = "form-control", @placeholder = "Your Last Name" })
+
+
+    @Html.LabelFor(m => m.Cust_BOD)
+    @Html.TextBoxFor(m => m.Cust_BOD, new { @class = "form-control", @placeholder = "Your Birth Date" })
+
+    <button type="submit" class="btn btn-default col-lg-offset-2 col-lg-8 submit">Submit</button>
+
+}

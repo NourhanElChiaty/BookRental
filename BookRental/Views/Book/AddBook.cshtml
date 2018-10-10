@@ -1,0 +1,33 @@
+﻿@model BookRental.Models.Book
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddBook</h2>
+
+@using (Html.BeginForm("SaveBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.LabelFor(m => m.Book_Name)
+    @Html.TextBoxFor(m => m.Book_Name, new { @class = "form-control", @placeholder = "BookName" })
+
+
+
+    @Html.LabelFor(m => m.Book_Author)
+    @Html.TextBoxFor(m => m.Book_Author, new { @class = "form-control", @placeholder = "Author" })
+
+
+    @Html.LabelFor(m => m.Book_ISBN)
+    @Html.TextBoxFor(m => m.Book_ISBN, new { @class = "form-control", @placeholder = "ISBN" })
+
+    @Html.LabelFor(m => m.Book_Quantity)
+    @Html.TextBoxFor(m => m.Book_Quantity, new { @class = "form-control", @placeholder = "Quantity" })
+
+    @Html.LabelFor(m => m.Book_Release)
+    @Html.TextBoxFor(m => m.Book_Release, new { @class = "form-control", @placeholder = "Date Of Release" })
+
+    <button type="submit" class="btn btn-default col-lg-offset-2 submit">Submit</button>
+
+}
+
